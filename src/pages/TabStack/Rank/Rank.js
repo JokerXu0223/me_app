@@ -5,20 +5,28 @@
  * @author JUSTIN XU
  */
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
+import { Container } from 'native-base';
+import { theme } from '../../../constants';
 
 class RankScreen extends React.Component {
-  static navigationOptions = () => ({
-    title: '排行',
-  });
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Container>
         <Text>Rank with</Text>
-      </View>
+      </Container>
     );
   }
 }
+
+RankScreen.navigationOptions = () => ({
+  title: '排行',
+  headerStyle: theme.headerStyle,
+  headerBackTitle: null,
+  headerTintColor: theme.mainTextColor,
+  headerTitleStyle: theme.headerTitleStyle,
+});
+
 
 RankScreen.propTypes = {
 };

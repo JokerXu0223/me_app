@@ -10,11 +10,11 @@ import styled from 'styled-components';
 import {
   Platform,
   Text,
-  View,
   Button,
 } from 'react-native';
+import { Container } from 'native-base';
 import { routers, theme } from '../../../constants/index';
-import { LightStatusBar } from '../../../components/Layout';
+import { CommStatusBar } from '../../../components/Layout';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -23,7 +23,7 @@ const instructions = Platform.select({
   'Shake or press menu button for dev menu',
 });
 
-const ContainerView = styled(View)`
+const ContainerView = styled(Container)`
   flex: 1;
   justify-content: center;
   align-items: center;
@@ -42,17 +42,11 @@ const InstructionsText = styled(Text)`
 `;
 
 class HomeScreen extends React.Component {
-  static navigationOptions = {
-    headerTitle: '首页',
-    headerStyle: theme.headerStyle,
-    headerTintColor: theme.mainTextColor,
-    headerTitleStyle: theme.headerTitleStyle,
-  };
   render() {
     const { navigate } = this.props.navigation;
     return (
       <ContainerView>
-        <LightStatusBar />
+        <CommStatusBar />
         <WelcomeText>
           Welcome to React Native!
         </WelcomeText>
@@ -67,6 +61,14 @@ class HomeScreen extends React.Component {
     );
   }
 }
+
+HomeScreen.navigationOptions = {
+  headerTitle: '首页',
+  headerStyle: theme.headerStyle,
+  headerBackTitle: null,
+  headerTintColor: theme.mainTextColor,
+  headerTitleStyle: theme.headerTitleStyle,
+};
 
 HomeScreen.propTypes = {
   navigation: PropTypes.shape({

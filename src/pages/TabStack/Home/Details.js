@@ -7,13 +7,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
-import { theme } from '../../../constants/index';
+import { theme } from '../../../constants';
+
+import { CommStatusBar } from '../../../components/Layout';
 
 class DetailsScreen extends React.Component {
   render() {
     const { params } = this.props.navigation.state;
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <CommStatusBar />
         <Text>Details with {params.user}</Text>
       </View>
     );

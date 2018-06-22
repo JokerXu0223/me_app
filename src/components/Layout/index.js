@@ -4,6 +4,6 @@
  * @time 2018/6/22
  * @author JUSTIN XU
  */
-import LightStatusBar from './LightStatusBar';
+import CommStatusBar from './CommStatusBar';
 
-export { LightStatusBar };
+export { CommStatusBar };

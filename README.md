@@ -32,12 +32,28 @@ OR
 |--README.md
 ```
 
-## 技术栈
+## 技术栈和问题总结
 ```html
-styled-components (css in js )
-react-navigation (路由)
-native-base (UI库)
-eslint-config-airbnb (eslint)
-
-
+## styled-components (css in js )
+## react-navigation (路由)
+## native-base (UI库)
+## eslint-config-airbnb (eslint)
 ```
+
+## 问题总结
+```html
+## 官网需要翻墙
+## 事件处理 (https://reactnative.cn/docs/0.39/handling-touches.html) 
+## navigationOptions属性(https://www.aliyun.com/jiaocheng/351195.html)
+{
+  headerBackTitle 重置返回的Text 是在导航上级容器
+}
+## 兼容iponeX头部的方案
+1. 外层使用 import { Container } from 'native-base';
+2. 外层使用 import { SafeAreaView } from 'react-native';
+3. 使用 utils/device.js getStatusBarHeight() 获取StatusBar的高度
+### 重置了StatusBar
+1. 保证ios，android每个页面都需要引入 components/Layout/CommStatusBar.js
+2. StatusBar(https://reactnative.cn/docs/0.39/statusbar.html#content)
+```
+

@@ -5,20 +5,28 @@
  * @author JUSTIN XU
  */
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
+import { Container } from 'native-base';
+
+import { theme } from '../../../constants';
 
 class MemberScreen extends React.Component {
-  static navigationOptions = () => ({
-    title: '会员',
-  });
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Container>
         <Text>Member with</Text>
-      </View>
+      </Container>
     );
   }
 }
+
+MemberScreen.navigationOptions = () => ({
+  title: '会员',
+  headerStyle: theme.headerStyle,
+  headerBackTitle: null,
+  headerTintColor: theme.mainTextColor,
+  headerTitleStyle: theme.headerTitleStyle,
+});
 
 MemberScreen.propTypes = {
 };
