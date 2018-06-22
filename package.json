@@ -1,6 +1,7 @@
 {
   "name": "me_app",
   "version": "0.0.1",
+  "author": "Me Team",
   "private": true,
   "scripts": {
     "setup": "yarn install && react-native link",
@@ -13,6 +14,7 @@
     "clear": "watchman watch-del-all && rm -rf $TMPDIR/react-* && rm -rf node_modules/ && yarn install && yarn start -- --reset-cache"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "native-base": "^2.6.0",
     "prop-types": "^15.6.1",
     "react": "16.3.1",

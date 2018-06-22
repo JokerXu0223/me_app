@@ -6,12 +6,12 @@ node 6.0+(v8.11.1)
 npm 3.0+(v5.6.0)
 ```
 ### 安装依赖
-* Run 'yarn run setup'
+* Run 'yarn setup'
 
 ### 开发环境 ios/ android
-* Run 'yarn run ios' 
+* Run 'yarn ios' 
 OR
-* Run 'yarn run android'
+* Run 'yarn android'
 
 ### 项目结构
 ```html
