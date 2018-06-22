@@ -6,7 +6,7 @@
  */
 import { createStackNavigator } from 'react-navigation';
 
-import { routers } from './config';
+import { routers } from './constants/index';
 import TabView from './pages/TabStack';
 
 export default createStackNavigator({

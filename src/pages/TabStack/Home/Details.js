@@ -7,7 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
-import { theme } from '../../../config';
+import { theme } from '../../../constants/index';
 
 class DetailsScreen extends React.Component {
   render() {

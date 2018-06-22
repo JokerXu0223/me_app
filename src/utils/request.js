@@ -4,9 +4,9 @@
  * @time 2018/6/22
  * @author JUSTIN XU
  */
+import { AsyncStorage } from 'react-native';
 import axios from 'axios';
-
-const BASE_URL = '';
+import { REACT_APP_BASE_URL } from '../config/api';
 
 const ERROR = {
   SERVE_ERROR: '服务器发生未知错误',
@@ -15,24 +15,24 @@ const ERROR = {
 }
 
 const instance = axios.create({
-  baseURL: BASE_URL,
+  baseURL: REACT_APP_BASE_URL,
   timeout: 6000,
 });
 
 // Add a request interceptor
-instance.interceptors.request.use(config => {
-  // const token = localStorage.getItem('token');
+instance.interceptors.request.use(async (config) => {
+  const token = await AsyncStorage.getItem('token');
   // removeToken is true, don't need token
-  // if (token && !config.removeToken) {
-  //   config.headers['X-Pool-Jwt'] = token;
-  // }
+  if (token && !config.removeToken) {
+    config.headers['X-Pool-Jwt'] = token;
+  }
   return config;
 });
 
 // Add a response interceptor
-instance.interceptors.response.use(response => {
+instance.interceptors.response.use((response) => {
   const { data, status } = response;
-  if ((status >= 200 && status < 300) || status === 304) {
+  if ((status >= 200 && status < 300) || Object.is(304, status)) {
     if (Object.is('arraybuffer', response.config.responseType)) {
       const filename = response.headers['content-disposition'] || '';
       return { filename, file: data };
@@ -42,19 +42,18 @@ instance.interceptors.response.use(response => {
   const res = new Error(data.code);
   res.response = response;
   throw res;
-}, (err) => {
+}, async (err) => {
   const { status, data: { msg, message } = {}, config = {} } = err.response || {};
   const errMsg = msg || message;
   if (Object.is(401, status) && !config.removeAuth) {
-    localStorage.removeItem('token');
+    await AsyncStorage.removeItem('token');
     const result = errMsg || ERROR.SERVE_TOKEN_ERROR;
     // TODO add handle message
     throw new Error(result);
   }
   // handle network timeout
   if (Object.is('ECONNABORTED', err.code)) {
-    const errMsg = ERROR.TIMEOUT_ERROR;
-    throw new Error(errMsg);
+    throw new Error(ERROR.TIMEOUT_ERROR);
   }
   throw new Error(errMsg || ERROR.SERVE_ERROR);
 });

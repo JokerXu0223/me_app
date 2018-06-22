@@ -6,7 +6,7 @@
  */
 import { createBottomTabNavigator } from 'react-navigation';
 
-import { routers, theme } from '../../config';
+import { routers, theme } from '../../constants/index';
 import HomeScreen from './Home';
 import MemberScreen from './Member';
 import RankScreen from './Rank';

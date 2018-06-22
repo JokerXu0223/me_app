@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { createStackNavigator } from 'react-navigation';
 import { Icon } from 'native-base';
 
-import { routers, theme } from '../../../config';
+import { routers, theme } from '../../../constants/index';
 import MineScreen from './Member';
 
 const RouteConfig = {

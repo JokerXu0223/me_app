@@ -13,7 +13,7 @@ import {
   View,
   Button,
 } from 'react-native';
-import { routers, theme } from '../../../config';
+import { routers, theme } from '../../../constants/index';
 import { LightStatusBar } from '../../../components/Layout';
 
 const instructions = Platform.select({
