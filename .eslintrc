@@ -98,6 +98,7 @@
       "BinaryExpression[operator='in']"
     ],
     "import/no-unresolved": [0],
+    "no-shadow": [0],
     "no-debugger": [0]
   },
   "ecmaFeatures": {

@@ -7,13 +7,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {
-  Platform,
-  Text,
-  Button,
-} from 'react-native';
+import { Platform, Text, Button } from 'react-native';
 import { Container } from 'native-base';
-import { routers, theme } from '../../../constants/index';
+import immutable from 'immutable';
+
+import { connect } from 'react-redux';
+import { fetchIncrementAction } from '../../../redux/actions/home';
+import { routers, theme } from '../../../constants';
 import { CommStatusBar } from '../../../components/Layout';
 
 const instructions = Platform.select({
@@ -42,17 +42,33 @@ const InstructionsText = styled(Text)`
 `;
 
 class HomeScreen extends React.Component {
+  componentDidMount() {
+    this.props.fetchIncrementAction();
+  }
   render() {
-    const { navigate } = this.props.navigation;
+    const {
+      props: {
+        fetchIncrementAction,
+        homeDemo,
+        navigation: { navigate },
+      },
+    } = this;
     return (
       <ContainerView>
         <CommStatusBar />
         <WelcomeText>
-          Welcome to React Native!
+          {JSON.stringify(homeDemo.get('list').toJS())}
+        </WelcomeText>
+        <WelcomeText>
+          {`errMsg: ${homeDemo.get('errMsg') || ''}`}
         </WelcomeText>
         <InstructionsText>
           {instructions}
         </InstructionsText>
+        <Button
+          onPress={() => fetchIncrementAction(1)}
+          title="Actions1"
+        />
         <Button
           onPress={() => navigate(routers.details, { user: 'Justin' })}
           title="Details"
@@ -82,7 +98,17 @@ HomeScreen.propTypes = {
       params: PropTypes.object,
     }),
   }).isRequired,
+  fetchIncrementAction: PropTypes.func.isRequired,
+  homeDemo: PropTypes.instanceOf(immutable.Map).isRequired,
 };
 
-export default HomeScreen;
+const mapStateToProps = state => ({
+  homeDemo: state.homeDemo,
+});
+
+const mapDispatchToProps = ({
+  fetchIncrementAction,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
 

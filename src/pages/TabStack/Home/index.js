@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { createStackNavigator } from 'react-navigation';
 import { Icon } from 'native-base';
 
-import { routers, theme } from '../../../constants/index';
+import { routers, theme } from '../../../constants';
 import HomeScreen from './Home';
 import DetailsScreen from './Details';
 
@@ -32,7 +32,7 @@ const tabBarIcon = ({ focused }) => (
     name="home"
     size={24}
     style={{
-      color: focused ? theme.primaryColor : theme.inactiveColor
+      color: focused ? theme.primaryColor : theme.inactiveColor,
     }}
   />
 );
@@ -57,4 +57,4 @@ HomeStack.navigationOptions = ({ navigation }) => {
   };
 };
 
-export default HomeStack;
+export default HomeStack

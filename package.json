@@ -15,11 +15,19 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "immutable": "^3.8.2",
     "native-base": "^2.6.0",
     "prop-types": "^15.6.1",
     "react": "16.3.1",
     "react-native": "0.55.4",
     "react-navigation": "^2.3.1",
+    "react-navigation-redux-helpers": "^2.0.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.16.0",
+    "reselect": "^3.0.1",
     "styled-components": "^3.3.2"
   },
   "devDependencies": {
