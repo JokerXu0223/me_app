@@ -17,14 +17,25 @@ OR
 ```html
 
 |--src     源文件
+  |--api            服务API
   |--assets         静态资源
   |--components     组件
+  |--config         配置
   |--constants      常量
   |--pages          页面
+    |--AuthStack    授权页面
     |--TabStack     TabBar页面
-  |--services       服务
-  |--store          根store文件夹
-  |--styles         此文件夹和node_modules不被CSS Module编译
+  |--redux          
+    |--actions      
+    |--reducers     
+      |--index.js   根 reducer    
+    |--sagas        
+      |--index.js   根 sagas  
+    |--selector     
+    |--store.js     根store
+      |--device.js  设备
+      |--navigationService.js
+      |--request.js xhr请求
   |--utils          工具文件夹
   |--index.js       全局入口js
 
