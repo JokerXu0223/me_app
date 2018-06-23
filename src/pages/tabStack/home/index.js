@@ -10,8 +10,8 @@ import { createStackNavigator } from 'react-navigation';
 import { Icon } from 'native-base';
 
 import { routers, theme } from '../../../constants';
-import HomeScreen from './Home';
-import DetailsScreen from './Details';
+import HomeScreen from './home';
+import DetailsScreen from './details';
 
 const RouteConfig = {
   [routers.home]: HomeScreen,

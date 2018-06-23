@@ -4,7 +4,7 @@
  * @time 2018/6/23
  * @author JUSTIN XU
  */
-import * as Types from '../actions/home';
+import * as Types from '../actionTypes/home';
 import { initBasicList } from './initialState';
 
 const initDemo = initBasicList.merge({

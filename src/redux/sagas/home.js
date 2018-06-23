@@ -6,11 +6,11 @@
  */
 import { takeEvery, all, put, call, select } from 'redux-saga/effects';
 import * as homeApi from '../../api/home';
-import * as Types from '../actions/home';
+import * as Types from '../actionTypes/home';
 
 
 // saga
-const fetchIncrement = function* saga({ payload = 1 }) {
+const fetchIncrementSaga = function* saga({ payload = 1 }) {
   try {
     yield call(homeApi.getDemo, { ms: 2000 });
     const bool = Math.random() > 0.5;
@@ -37,7 +37,7 @@ const fetchIncrement = function* saga({ payload = 1 }) {
 
 export default function* rootFlow() {
   yield all([
-    takeEvery(Types.FETCH_INCREMENT_REQUEST, fetchIncrement),
+    takeEvery(Types.FETCH_INCREMENT_REQUEST, fetchIncrementSaga),
   ]);
 }
 

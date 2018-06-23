@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
 import { theme } from '../../../constants';
 
-import { CommStatusBar } from '../../../components/Layout';
+import { CommStatusBar } from '../../../components/layout';
 
 class DetailsScreen extends React.Component {
   render() {

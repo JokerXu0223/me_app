@@ -1,5 +1,5 @@
 /**
- * @component CommStatusBar.js
+ * @component commStatusBar.js
  * @description 头部
  * @time 2018/6/22
  * @author JUSTIN XU

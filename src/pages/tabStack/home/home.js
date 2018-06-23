@@ -7,14 +7,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Platform, Text, Button } from 'react-native';
-import { Container } from 'native-base';
+import { Platform } from 'react-native';
+import { Container, View, Button, Text } from 'native-base';
 import immutable from 'immutable';
 
 import { connect } from 'react-redux';
-import { fetchIncrementAction } from '../../../redux/actions/home';
+import { fetchIncrementAction } from '../../../redux/actionTypes/home';
 import { routers, theme } from '../../../constants';
-import { CommStatusBar } from '../../../components/Layout';
+import { CommStatusBar } from '../../../components/layout';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -41,6 +41,12 @@ const InstructionsText = styled(Text)`
   margin-bottom: 5px;
 `;
 
+const ButtonGroup = styled(View)`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
 class HomeScreen extends React.Component {
   componentDidMount() {
     this.props.fetchIncrementAction();
@@ -65,14 +71,22 @@ class HomeScreen extends React.Component {
         <InstructionsText>
           {instructions}
         </InstructionsText>
-        <Button
-          onPress={() => fetchIncrementAction(1)}
-          title="Actions1"
-        />
-        <Button
-          onPress={() => navigate(routers.details, { user: 'Justin' })}
-          title="Details"
-        />
+        <ButtonGroup>
+          <Button
+            onPress={() => fetchIncrementAction(1)}
+            style={{ width: 100 }}
+            Primary
+          >
+            <Text>Actions</Text>
+          </Button>
+          <Button
+            onPress={() => navigate(routers.details, { user: 'Justin' })}
+            style={{ width: 100, marginLeft: 10 }}
+            danger
+          >
+            <Text>Details</Text>
+          </Button>
+        </ButtonGroup>
       </ContainerView>
     );
   }

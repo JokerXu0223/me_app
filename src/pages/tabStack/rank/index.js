@@ -10,14 +10,14 @@ import { createStackNavigator } from 'react-navigation';
 import { Icon } from 'native-base';
 
 import { routers, theme } from '../../../constants/index';
-import MineScreen from './Rank';
+import MineScreen from './rank';
 
 const RouteConfig = {
-  [routers.Mine]: MineScreen,
+  [routers.mine]: MineScreen,
 };
 
 const navigatorConfig = {
-  initialRouteName: routers.Mine,
+  initialRouteName: routers.mine,
   cardStyle: { shadowColor: 'transparent' },
   headerMode: 'screen',
 };

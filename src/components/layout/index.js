@@ -4,6 +4,6 @@
  * @time 2018/6/22
  * @author JUSTIN XU
  */
-import CommStatusBar from './CommStatusBar';
+import CommStatusBar from './commStatusBar';
 
 export { CommStatusBar };

@@ -7,10 +7,10 @@
 import { createBottomTabNavigator } from 'react-navigation';
 
 import { routers, theme } from '../../constants/index';
-import HomeScreen from './Home';
-import MemberScreen from './Member';
-import RankScreen from './Rank';
-import MineScreen from './Mine';
+import HomeScreen from './home';
+import MemberScreen from './member';
+import RankScreen from './rank';
+import MineScreen from './mine';
 
 const RouteConfig = {
   [routers.home]: HomeScreen,

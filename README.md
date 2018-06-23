@@ -80,7 +80,7 @@ java (v1.8.0_172)
 3. 使用 utils/device.js getStatusBarHeight() 获取StatusBar的高度
 
 ## 重置了StatusBar
-1. 保证ios，android每个页面都需要引入 components/Layout/CommStatusBar.js
+1. 保证ios，android每个页面都需要引入 components/layout/commStatusBar.js
 2. StatusBar(https://reactnative.cn/docs/0.39/statusbar.html#content)
 
 ## Redux_Tools (open Remote Devtools)

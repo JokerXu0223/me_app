@@ -10,7 +10,7 @@ import { createStackNavigator } from 'react-navigation';
 import { Icon } from 'native-base';
 
 import { routers, theme } from '../../../constants/index';
-import MineScreen from './Member';
+import MineScreen from './member';
 
 const RouteConfig = {
   [routers.Mine]: MineScreen,
