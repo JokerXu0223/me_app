@@ -7,8 +7,8 @@
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware, { END } from 'redux-saga';
 import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import loggerMiddle from 'redux-logger';
+import { composeWithDevTools } from 'remote-redux-devtools';
+import loggerMiddleware from 'redux-logger';
 import rootReducer from './reducers';
 import rootSaga from './sagas';
 
@@ -20,7 +20,7 @@ const naviMiddleware = createReactNavigationReduxMiddleware(
 const middlewares = [sagaMiddleware, naviMiddleware]; // 中间插件
 /* global __DEV__  */
 if (__DEV__) {
-  middlewares.push(loggerMiddle);
+  middlewares.push(loggerMiddleware);
 }
 const createStoreWithMiddleware = composeWithDevTools(applyMiddleware(...middlewares))(createStore);
 
