@@ -7,8 +7,3 @@
 
 export const FETCH_INCREMENT_REQUEST = 'HOME/FETCH_INCREMENT_REQUEST';
 export const FETCH_INCREMENT_RESPONSE = 'HOME/FETCH_INCREMENT_RESPONSE';
-
-export const fetchIncrementAction = id => ({
-  type: FETCH_INCREMENT_REQUEST,
-  payload: id,
-});

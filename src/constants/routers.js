@@ -2,7 +2,7 @@
 /**
  * @component routers.js
  * @description 路由配置
- * @time 2018/6/15
+ * @time 2018/6/23
  * @author JUSTIN XU
  */
 export default {

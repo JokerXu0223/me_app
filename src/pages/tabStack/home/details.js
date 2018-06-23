@@ -1,7 +1,7 @@
 /**
  * @component details.js
  * @description 详情页
- * @time 2018/6/16
+ * @time 2018/6/23
  * @author JUSTIN XU
  */
 import React from 'react';

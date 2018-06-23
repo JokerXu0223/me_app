@@ -1,76 +1,42 @@
 /**
  * @component home.js
  * @description 首页
- * @time 2018/6/17
+ * @time 2018/6/23
  * @author JUSTIN XU
  */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Platform } from 'react-native';
-import { Container, View, Button, Text } from 'native-base';
-import immutable from 'immutable';
+import { Container, Text } from 'native-base';
 
 import { connect } from 'react-redux';
-import { fetchIncrementAction } from '../../../redux/actionTypes/home';
-import { routers, theme } from '../../../constants';
+import { fetchIncrementAsync } from '../../../redux/actions/home';
+import { theme } from '../../../constants';
 import { CommStatusBar } from '../../../components/layout';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-  'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-  'Shake or press menu button for dev menu',
-});
+import { OverHeader } from '../../../components/home';
 
 const ContainerView = styled(Container)`
   flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
-
-const WelcomeText = styled(Text)`
-  font-size: 20px;
-  text-align: center;
-  margin: 10px;
-`;
-
-const InstructionsText = styled(Text)`
-  text-align: center;
-  color: #333333;
-  margin-bottom: 5px;
-`;
-
-const ButtonGroup = styled(View)`
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 `;
 
 class HomeScreen extends React.Component {
   componentDidMount() {
-    this.props.fetchIncrementAction();
+    this.props.fetchIncrementAsync();
   }
   render() {
     const {
       props: {
-        fetchIncrementAction,
         homeDemo,
-        navigation: { navigate },
       },
     } = this;
     return (
       <ContainerView>
         <CommStatusBar />
-        <WelcomeText>
-          {JSON.stringify(homeDemo.get('list').toJS())}
-        </WelcomeText>
-        <WelcomeText>
-          {`errMsg: ${homeDemo.get('errMsg') || ''}`}
-        </WelcomeText>
-        <InstructionsText>
-          {instructions}
-        </InstructionsText>
+        <OverHeader />
+        <Text>
+          {JSON.stringify(homeDemo)}
+        </Text>
+        {/*
         <ButtonGroup>
           <Button
             onPress={() => fetchIncrementAction(1)}
@@ -87,6 +53,7 @@ class HomeScreen extends React.Component {
             <Text>Details</Text>
           </Button>
         </ButtonGroup>
+        */}
       </ContainerView>
     );
   }
@@ -112,8 +79,8 @@ HomeScreen.propTypes = {
       params: PropTypes.object,
     }),
   }).isRequired,
-  fetchIncrementAction: PropTypes.func.isRequired,
-  homeDemo: PropTypes.instanceOf(immutable.Map).isRequired,
+  fetchIncrementAsync: PropTypes.func.isRequired,
+  homeDemo: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -121,7 +88,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = ({
-  fetchIncrementAction,
+  fetchIncrementAsync,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

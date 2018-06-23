@@ -1,12 +1,12 @@
 /**
  * @component index.js
  * @description TabBar 根路由
- * @time 2018/6/17
+ * @time 2018/6/23
  * @author JUSTIN XU
  */
 import { createBottomTabNavigator } from 'react-navigation';
 
-import { routers, theme } from '../../constants/index';
+import { routers, theme } from '../../constants';
 import HomeScreen from './home';
 import MemberScreen from './member';
 import RankScreen from './rank';

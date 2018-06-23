@@ -5,19 +5,17 @@
  * @author JUSTIN XU
  */
 import { createStore, applyMiddleware } from 'redux';
-import createSagaMiddleware, { END } from 'redux-saga';
+import thunkMiddleware from 'redux-thunk';
 import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers';
 import { composeWithDevTools } from 'remote-redux-devtools';
 import loggerMiddleware from 'redux-logger';
 import rootReducer from './reducers';
-import rootSaga from './sagas';
 
-const sagaMiddleware = createSagaMiddleware();
 const naviMiddleware = createReactNavigationReduxMiddleware(
   'root',
   state => state.navState,
 );
-const middlewares = [sagaMiddleware, naviMiddleware]; // 中间插件
+const middlewares = [thunkMiddleware, naviMiddleware]; // 中间插件
 /* global __DEV__  */
 if (__DEV__) {
   middlewares.push(loggerMiddleware);
@@ -35,9 +33,6 @@ export default function configureStore(initialState) {
       store.replaceReducer(nextRootReducer);
     });
   }
-  // then run the saga
-  sagaMiddleware.run(rootSaga);
-  store.close = () => store.dispatch(END);
 
   return store;
 }

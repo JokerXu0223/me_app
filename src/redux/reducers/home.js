@@ -5,9 +5,10 @@
  * @author JUSTIN XU
  */
 import * as Types from '../actionTypes/home';
-import { initBasicList } from './initialState';
 
-const initDemo = initBasicList.merge({
+const initDemo = {
+  loading: false,
+  errMsg: null,
   list: [{
     id: 1,
     title: 'First',
@@ -21,15 +22,18 @@ const initDemo = initBasicList.merge({
     title: 'Third',
     number: 20,
   }],
-})
+}
 
 export function homeDemo(state = initDemo, action) {
   switch (action.type) {
-    case Types.FETCH_INCREMENT_REQUEST:
-      return state.set('loading', true).set('errMsg', null);
-    case Types.FETCH_INCREMENT_RESPONSE:
-      return state.set('loading', false).merge(action.payload);
+    case Types.FETCH_INCREMENT_REQUEST: {
+      return { ...state, loading: true, errMsg: null };
+    }
+    case Types.FETCH_INCREMENT_RESPONSE: {
+      return { ...state, loading: false, ...action.payload };
+    }
     default:
       return state;
   }
-};
+}
+

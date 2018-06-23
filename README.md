@@ -16,7 +16,6 @@ java (v1.8.0_172)
 
 ### 项目结构
 ```html
-
 |--src     源文件
   |--api            服务API
   |--assets         静态资源
@@ -24,20 +23,19 @@ java (v1.8.0_172)
   |--config         配置
   |--constants      常量
   |--pages          页面
-    |--AuthStack    授权页面
-    |--TabStack     TabBar页面
+    |--authStack    授权页面
+    |--tabStack     TabBar页面
   |--redux          
-    |--actions      
+    |--actions      动作
+    |--actionTypes  动作常量      
     |--reducers     
       |--index.js   根 reducer    
-    |--sagas        
-      |--index.js   根 sagas  
     |--selector     
     |--store.js     根store
-      |--device.js  设备
-      |--navigationService.js
-      |--request.js xhr请求
   |--utils          工具文件夹
+    |--device.js    设备
+    |--navigationService.js
+    |--request.js   xhr请求
   |--index.js       全局入口js
 
 |--package.json
@@ -51,9 +49,8 @@ java (v1.8.0_172)
 ## native-base (UI库) (https://docs.nativebase.io/Components.html#icon-def-headref)
 ## eslint-config-airbnb (eslint)
 ## axios xhr请求库 (https://github.com/axios/axios)
-## immutable (https://facebook.github.io/immutable-js/docs/#/Map/setIn)
 ## redux
-## redux-saga (https://redux-saga-in-chinese.js.org/docs/api/index.html)
+## redux-thunk (https://github.com/reduxjs/redux-thunk)
 ## reselect (https://www.jianshu.com/p/6e38c66366cd)
 
 ```
