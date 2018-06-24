@@ -57,8 +57,6 @@ java (v1.8.0_172)
 
 ## 问题总结
 ```html
-## 官网需要翻墙
-
 ## 三方插件(https://www.jianshu.com/p/53ff78168acc##UI)
 
 ## Font Icon

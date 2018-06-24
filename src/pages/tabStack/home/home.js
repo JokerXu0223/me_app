@@ -7,53 +7,107 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Container, Text } from 'native-base';
+import { Image, ScrollView, View, Text } from 'react-native';
 
 import { connect } from 'react-redux';
 import { fetchIncrementAsync } from '../../../redux/actions/home';
 import { theme } from '../../../constants';
 import { CommStatusBar } from '../../../components/layout';
-import { OverHeader } from '../../../components/home';
+import { OverHeader, PressRight, BirthItem } from '../../../components/home';
+import { Carousel } from '../../../components/common';
 
-const ContainerView = styled(Container)`
+// static source
+import goIcon from '../../../assets/home/go.png';
+import HeadImage from '../../../assets/test/head.png';
+
+const ContainerView = styled(ScrollView)`
   flex: 1;
 `;
 
+const MembBirthView = styled(View)`
+  margin-top: 24px;
+  margin-bottom: 18px;
+  height: 25px;
+  padding: 0 14px;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+`;
+
+const BodyView = styled(View)`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+const BodyTitle = styled(Text)`
+  margin-left: 5px;
+  font-family: ${theme.fontMedium};
+  font-size: 18px;
+  color: #515151;
+`;
+
 class HomeScreen extends React.Component {
-  componentDidMount() {
-    this.props.fetchIncrementAsync();
-  }
   render() {
-    const {
-      props: {
-        homeDemo,
+    const overHeadProps = {
+      headerBack: require('../../../assets/home/homeBack.png'),
+      packBack: require('../../../assets/home/packBack.png'),
+      packNum: 12,
+      perfBack: require('../../../assets/home/perfBack.png'),
+      goIcon,
+      perfInfo: {
+        total: 8000.00,
+        follow: 12,
+        newMember: 20,
+        newCard: 20,
       },
-    } = this;
+      doPacket: () => alert('pack'),
+      doPerf: () => alert('pref'),
+    }
+    const caroProps = {
+      entries: [{
+        thumbnail: HeadImage,
+        name: '张三',
+        docSummary: '明天生日',
+      },
+      {
+        thumbnail: HeadImage,
+        name: '李雷',
+        docSummary: '今天生日',
+      },
+      {
+        thumbnail: HeadImage,
+        name: '韩梅梅',
+        docSummary: '后天生日',
+      },
+      {
+        thumbnail: HeadImage,
+        name: '老王',
+        docSummary: '距离生日3天',
+      }],
+    }
     return (
       <ContainerView>
         <CommStatusBar />
-        <OverHeader />
-        <Text>
-          {JSON.stringify(homeDemo)}
-        </Text>
-        {/*
-        <ButtonGroup>
-          <Button
-            onPress={() => fetchIncrementAction(1)}
-            style={{ width: 100 }}
-            Primary
-          >
-            <Text>Actions</Text>
-          </Button>
-          <Button
-            onPress={() => navigate(routers.details, { user: 'Justin' })}
-            style={{ width: 100, marginLeft: 10 }}
-            danger
-          >
-            <Text>Details</Text>
-          </Button>
-        </ButtonGroup>
-        */}
+        <OverHeader {...overHeadProps} />
+        <MembBirthView>
+          <View width={49} />
+          <BodyView>
+            <Image
+              source={require('../../../assets/home/birthday.png')}
+            />
+            <BodyTitle>会员生日</BodyTitle>
+          </BodyView>
+          <PressRight
+            title="更多"
+            titleStyle={{ fontSize: 14 }}
+            goIcon={goIcon}
+            onPress={() => alert('more')}
+          />
+        </MembBirthView>
+        <Carousel {...caroProps}>
+          <BirthItem />
+        </Carousel>
       </ContainerView>
     );
   }

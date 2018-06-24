@@ -13,7 +13,7 @@ import { Container } from 'native-base';
 import { theme } from '../../../constants';
 import { AccoModal } from '../../../components/auth';
 
-import notLoginImage from '../../../assets/miner/notLgoin.png';
+import notLoginImage from '../../../assets/mine/notLgoin.png';
 
 const ContainerView = styled(Container)`
   flex: 1;

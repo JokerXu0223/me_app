@@ -44,7 +44,6 @@
     "Promise": true,
     "requestAnimationFrame": true,
     "requestIdleCallback": true,
-    "require": false,
     "Set": true,
     "setImmediate": true,
     "setInterval": false,
@@ -99,6 +98,7 @@
     ],
     "import/no-unresolved": [0],
     "no-shadow": [0],
+    "global-require": [0],
     "no-debugger": [0]
   },
   "ecmaFeatures": {

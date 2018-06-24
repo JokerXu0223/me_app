@@ -7,7 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { createStackNavigator } from 'react-navigation';
-import { Icon } from 'native-base';
+import { Image } from 'react-native';
 
 import { routers, theme } from '../../../constants/index';
 import MineScreen from './mine';
@@ -25,13 +25,17 @@ const navigatorConfig = {
 const MineStack = createStackNavigator(RouteConfig, navigatorConfig);
 
 const tabBarIcon = ({ focused }) => (
-  <Icon
-    name="person"
-    size={24}
-    style={{
-      color: focused ? theme.primaryColor : theme.inactiveColor,
-    }}
-  />
+  focused ? (
+    <Image
+      source={require('../../../assets/tabBar/mine-focus.png')}
+      size={24}
+    />
+  ) : (
+    <Image
+      source={require('../../../assets/tabBar/mine.png')}
+      size={24}
+    />
+  )
 );
 
 tabBarIcon.propTypes = {
