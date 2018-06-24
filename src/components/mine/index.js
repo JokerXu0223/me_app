@@ -4,7 +4,7 @@
  * @time 2018/6/24
  * @author zhao
  */
-import MineHeader from './mineHeader'
-import MineNavItem from './mineNavItem'
+import MineHeader from './mineHeader';
+import MineNavItem from './mineNavItem';
 
 export { MineHeader, MineNavItem };
