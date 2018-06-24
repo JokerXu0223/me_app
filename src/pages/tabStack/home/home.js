@@ -6,46 +6,17 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Image, ScrollView, View, Text } from 'react-native';
 
 import { connect } from 'react-redux';
 import { fetchIncrementAsync } from '../../../redux/actions/home';
 import { theme } from '../../../constants';
-import { CommStatusBar } from '../../../components/layout';
-import { OverHeader, PressRight, BirthItem } from '../../../components/home';
-import { Carousel } from '../../../components/common';
+import { BasicPage } from '../../../components/layout';
+import { OverHeader, BirthItem } from '../../../components/home';
+import { Carousel, PreviewHead, PressRight } from '../../../components/common';
 
 // static source
 import goIcon from '../../../assets/home/go.png';
 import HeadImage from '../../../assets/test/head.png';
-
-const ContainerView = styled(ScrollView)`
-  flex: 1;
-`;
-
-const MembBirthView = styled(View)`
-  margin-top: 24px;
-  margin-bottom: 18px;
-  height: 25px;
-  padding: 0 14px;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-`;
-
-const BodyView = styled(View)`
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
-
-const BodyTitle = styled(Text)`
-  margin-left: 5px;
-  font-family: ${theme.fontMedium};
-  font-size: 18px;
-  color: #515151;
-`;
 
 class HomeScreen extends React.Component {
   render() {
@@ -86,29 +57,25 @@ class HomeScreen extends React.Component {
         docSummary: '距离生日3天',
       }],
     }
+    const prevProps = {
+      bodyIcon: require('../../../assets/home/birthday.png'),
+      bodyTitle: '会员生日',
+      rightElem: (
+        <PressRight
+          title="更多"
+          titleStyle={{ fontSize: 14 }}
+          onPress={() => alert('more')}
+        />
+      ),
+    }
     return (
-      <ContainerView>
-        <CommStatusBar />
+      <BasicPage>
         <OverHeader {...overHeadProps} />
-        <MembBirthView>
-          <View width={49} />
-          <BodyView>
-            <Image
-              source={require('../../../assets/home/birthday.png')}
-            />
-            <BodyTitle>会员生日</BodyTitle>
-          </BodyView>
-          <PressRight
-            title="更多"
-            titleStyle={{ fontSize: 14 }}
-            goIcon={goIcon}
-            onPress={() => alert('more')}
-          />
-        </MembBirthView>
+        <PreviewHead {...prevProps} />
         <Carousel {...caroProps}>
           <BirthItem />
         </Carousel>
-      </ContainerView>
+      </BasicPage>
     );
   }
 }

@@ -7,9 +7,13 @@
 import BorderShadow from './borderShadow';
 import BoxShadow from './boxShadow';
 import Carousel from './carousel';
+import PressRight from './pressRight';
+import PreviewHead from './previewHead';
 
 export {
   BorderShadow,
   BoxShadow,
+  PressRight,
+  PreviewHead,
   Carousel,
 };
