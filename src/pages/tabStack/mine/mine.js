@@ -13,7 +13,7 @@ import { theme } from '../../../constants';
 
 const ListView = styled(View)`
     width: 100%;
-    background: #FFFFFF;
+    background: #F9F9F9;
 `;
 
 const NavList = [

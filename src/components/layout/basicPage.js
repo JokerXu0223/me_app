@@ -13,6 +13,7 @@ import CommStatusBar from './commStatusBar';
 
 const ContainerView = styled(SafeAreaView)`
   flex: 1;
+  background-color: #ffffff;
 `;
 
 class BasicPage extends React.PureComponent {
