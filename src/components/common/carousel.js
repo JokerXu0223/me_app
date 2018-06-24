@@ -35,7 +35,7 @@ class BorderShadow extends React.PureComponent {
   };
 
   render() {
-    const { entries } = this.props;
+    const { entries, containerStyle } = this.props;
     if (!entries) return null;
     const { currentIndex } = this.state;
     return (
@@ -56,8 +56,9 @@ class BorderShadow extends React.PureComponent {
           dotsLength={entries.length}
           activeDotIndex={currentIndex}
           containerStyle={{
-            paddingTop: 12,
+            paddingTop: 10,
             paddingBottom: 21,
+            ...containerStyle,
           }}
           dotColor={theme.primaryColor}
           inactiveDotColor="#ffffff"
@@ -79,11 +80,13 @@ class BorderShadow extends React.PureComponent {
 
 BorderShadow.defaultProps = {
   entries: null,
+  containerStyle: null,
 };
 
 BorderShadow.propTypes = {
   entries: PropTypes.arrayOf(PropTypes.any),
   children: PropTypes.element.isRequired,
+  containerStyle: PropTypes.objectOf(PropTypes.any),
 };
 
 export default BorderShadow;

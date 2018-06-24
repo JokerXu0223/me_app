@@ -1,6 +1,6 @@
 /**
- * @component birthItem.js
- * @description 首页条目
+ * @component rankItem.js
+ * @description 排行条目
  * @time 2018/6/24
  * @author JUSTIN XU
  */
@@ -17,8 +17,9 @@ const ItemView = styled(View)`
   width: 110px;
   align-self: center;
   align-items: center;
-  padding-top: 7px;
-  padding-bottom: 14px;
+  padding-top: 11px;
+  padding-bottom: 10px;
+  position: relative;
 `;
 
 const ImageView = styled(Image)`
@@ -35,21 +36,22 @@ const NameText = styled(Text)`
   padding-top: 7px;
 `;
 
-const TitleText = styled(Text)`
-  font-family: ${theme.fontRegular};
-  font-size: 13px;
-  color: #ADADAD;
-  letter-spacing: -0.43px;
-  padding-top: 2px;
+const RankNumView = styled(View)`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  align-items: center;
 `;
 
-class BirthItem extends React.PureComponent {
+class RankItem extends React.PureComponent {
   render() {
     const { item } = this.props;
     const ios = Platform.OS === 'ios';
     const boxConfig = {
       width: 110,
-      height: 130,
+      height: 110,
       color: '#b9b9b9',
       border: 4,
       radius: 4,
@@ -67,19 +69,35 @@ class BirthItem extends React.PureComponent {
             source={item.thumbnail}
           />
           <NameText>{item.name}</NameText>
-          <TitleText>{item.docSummary}</TitleText>
+          <RankNumView>
+            {
+              item.ranking === 1
+              &&
+              <Image source={require('../../assets/rank/first.png')} />
+            }
+            {
+              item.ranking === 2
+              &&
+              <Image source={require('../../assets/rank/second.png')} />
+            }
+            {
+              item.ranking === 3
+              &&
+              <Image source={require('../../assets/rank/third.png')} />
+            }
+          </RankNumView>
         </ItemView>
       </BoxShadow>
     );
   }
 }
 
-BirthItem.defaultProps = {
+RankItem.defaultProps = {
   item: {},
 };
 
-BirthItem.propTypes = {
+RankItem.propTypes = {
   item: PropTypes.objectOf(PropTypes.any),
 };
 
-export default BirthItem;
+export default RankItem;
