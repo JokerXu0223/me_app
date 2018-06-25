@@ -20,7 +20,7 @@ const RouteConfig = {
 };
 
 const navigatorConfig = {
-  initialRouteName: routers.mine,
+  initialRouteName: routers.rank,
   tabBarOptions: {
     style: {
       backgroundColor: theme.headerBackgroundColor,

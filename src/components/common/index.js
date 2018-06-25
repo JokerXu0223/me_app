@@ -9,6 +9,7 @@ import BoxShadow from './boxShadow';
 import Carousel from './carousel';
 import PressRight from './pressRight';
 import PreviewHead from './previewHead';
+import PanelHeader, { TabsPanelView } from './tabsPanel';
 
 export {
   BorderShadow,
@@ -16,4 +17,6 @@ export {
   PressRight,
   PreviewHead,
   Carousel,
+  PanelHeader,
+  TabsPanelView,
 };

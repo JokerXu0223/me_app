@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import styled from 'styled-components';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { theme } from '../../../constants';
 
 import { BasicPage } from '../../../components/layout';
@@ -99,87 +99,89 @@ class RankScreen extends React.Component {
     }
     return (
       <BasicPage>
-        <TabsPanelView>
-          <PanelView
-            icon={require('../../../assets/rank/store.png')}
-            activeIcon={require('../../../assets/rank/store-focus.png')}
-            title="门店"
-            onPress={() => this.changeHandle(1)}
-            active={activeIndex === 1}
+        <ScrollView>
+          <TabsPanelView>
+            <PanelView
+              icon={require('../../../assets/rank/store.png')}
+              activeIcon={require('../../../assets/rank/store-focus.png')}
+              title="门店"
+              onPress={() => this.changeHandle(1)}
+              active={activeIndex === 1}
+            />
+            <DividerView />
+            <PanelView
+              icon={require('../../../assets/rank/nationwide.png')}
+              activeIcon={require('../../../assets/rank/nationwide-focus.png')}
+              title="全国"
+              active={activeIndex === 2}
+              onPress={() => this.changeHandle(2)}
+            />
+          </TabsPanelView>
+          <BorderShadow setting={shadowOpt} />
+          <PreviewHead
+            bodyIcon={require('../../../assets/rank/follow.png')}
+            bodyTitle="粉丝榜"
+            rightElem={(
+              <PressRight
+                title="查看详情"
+                titleStyle={{
+                  fontSize: 14,
+                  color: theme.primaryColor,
+                }}
+                onPress={() => alert('follow')}
+              />
+            )}
+            {...prevCommProps}
           />
-          <DividerView />
-          <PanelView
-            icon={require('../../../assets/rank/nationwide.png')}
-            activeIcon={require('../../../assets/rank/nationwide-focus.png')}
-            title="全国"
-            active={activeIndex === 2}
-            onPress={() => this.changeHandle(2)}
+          <RankNumView>
+            <RankNumText>我的排名：78</RankNumText>
+          </RankNumView>
+          <Carousel {...follProps}>
+            <RankItem />
+          </Carousel>
+          <PreviewHead
+            bodyIcon={require('../../../assets/tabBar/member-focus.png')}
+            bodyTitle="会员榜"
+            rightElem={(
+              <PressRight
+                title="查看详情"
+                titleStyle={{
+                  fontSize: 14,
+                  color: theme.primaryColor,
+                }}
+                onPress={() => alert('member')}
+              />
+            )}
+            {...prevCommProps}
           />
-        </TabsPanelView>
-        <BorderShadow setting={shadowOpt} />
-        <PreviewHead
-          bodyIcon={require('../../../assets/rank/follow.png')}
-          bodyTitle="粉丝榜"
-          rightElem={(
-            <PressRight
-              title="查看详情"
-              titleStyle={{
-                fontSize: 14,
-                color: theme.primaryColor,
-              }}
-              onPress={() => alert('follow')}
-            />
-          )}
-          {...prevCommProps}
-        />
-        <RankNumView>
-          <RankNumText>我的排名：78</RankNumText>
-        </RankNumView>
-        <Carousel {...follProps}>
-          <RankItem />
-        </Carousel>
-        <PreviewHead
-          bodyIcon={require('../../../assets/tabBar/member-focus.png')}
-          bodyTitle="会员榜"
-          rightElem={(
-            <PressRight
-              title="查看详情"
-              titleStyle={{
-                fontSize: 14,
-                color: theme.primaryColor,
-              }}
-              onPress={() => alert('member')}
-            />
-          )}
-          {...prevCommProps}
-        />
-        <RankNumView>
-          <RankNumText>会员榜：278</RankNumText>
-        </RankNumView>
-        <Carousel {...follProps}>
-          <RankItem />
-        </Carousel>
-        <PreviewHead
-          bodyIcon={require('../../../assets/rank/sale.png')}
-          bodyTitle="销售榜"
-          rightElem={(
-            <PressRight
-              title="查看详情"
-              titleStyle={{
-                fontSize: 14,
-                color: theme.primaryColor,
-              }}
-              onPress={() => alert('market')}
-            />
-          )}
-          {...prevCommProps}
-        />
-        <RankNumView>
-          <RankNumText>销售榜：178</RankNumText>
-        </RankNumView>
-        <Carousel {...follProps}>
-          <RankItem />
-        </Carousel>
+          <RankNumView>
+            <RankNumText>会员榜：278</RankNumText>
+          </RankNumView>
+          <Carousel {...follProps}>
+            <RankItem />
+          </Carousel>
+          <PreviewHead
+            bodyIcon={require('../../../assets/rank/sale.png')}
+            bodyTitle="销售榜"
+            rightElem={(
+              <PressRight
+                title="查看详情"
+                titleStyle={{
+                  fontSize: 14,
+                  color: theme.primaryColor,
+                }}
+                onPress={() => alert('market')}
+              />
+            )}
+            {...prevCommProps}
+          />
+          <RankNumView>
+            <RankNumText>销售榜：178</RankNumText>
+          </RankNumView>
+          <Carousel {...follProps}>
+            <RankItem />
+          </Carousel>
+        </ScrollView>
       </BasicPage>
     );
   }

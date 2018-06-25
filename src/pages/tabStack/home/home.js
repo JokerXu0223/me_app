@@ -6,6 +6,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ScrollView } from 'react-native';
 
 import { connect } from 'react-redux';
 import { fetchIncrementAsync } from '../../../redux/actions/home';
@@ -70,11 +71,13 @@ class HomeScreen extends React.Component {
     }
     return (
       <BasicPage>
-        <OverHeader {...overHeadProps} />
-        <PreviewHead {...prevProps} />
-        <Carousel {...caroProps}>
-          <BirthItem />
-        </Carousel>
+        <ScrollView>
+          <OverHeader {...overHeadProps} />
+          <PreviewHead {...prevProps} />
+          <Carousel {...caroProps}>
+            <BirthItem />
+          </Carousel>
+        </ScrollView>
       </BasicPage>
     );
   }
