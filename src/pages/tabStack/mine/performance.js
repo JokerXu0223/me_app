@@ -6,16 +6,29 @@
  */
 import React, { Component } from 'react';
 import { Text } from 'react-native';
+import { PanelHeader } from '../../../components/common'
 
 import { BasicPage } from '../../../components/layout';
 import { theme } from '../../../constants';
 
+const TabList = ["粉丝数", "会员数", "销售额"]
+
 class PerformanceView extends Component {
-  state = {};
+  state = {
+    tabIndex: 0
+  };
+
+  onTabHandler(tabIndex) {
+    this.setState({tabIndex})
+  }
 
   render() {
+    let { tabIndex } = this.state
+
     return (
       <BasicPage>
+        <PanelHeader data={TabList} activeIndex={tabIndex} onChange={tab=>this.onTabHandler(tab)} />
+        <Text>我的业绩。。。。</Text>
       </BasicPage>
     );
   }

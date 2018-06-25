@@ -27,7 +27,7 @@ const RouteConfig = {
 };
 
 const navigatorConfig = {
-  initialRouteName: routers.mine,
+  initialRouteName: routers.minePerformance,
   cardStyle: { shadowColor: 'transparent' },
   headerMode: 'screen',
 };

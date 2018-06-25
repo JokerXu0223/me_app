@@ -10,8 +10,9 @@ import styled from 'styled-components';
 import { Text, View, TouchableOpacity } from 'react-native';
 
 import { theme } from '../../constants';
+import BorderShadow from './borderShadow';
 
-export const TabsPanelView = styled(View)`
+const TabsPanelView = styled(View)`
   background: #FFFFFF;
   height: 44px;
   flex-direction: row;
@@ -50,28 +51,50 @@ const ActiveBoard = styled(View)`
 
 class PanelHeader extends React.PureComponent {
   render() {
+    const shadowOpt = {
+      width: 750,
+      color: '#CBD5F1',
+      border: 4,
+      opacity: 0.3,
+      side: 'bottom',
+      // style: { width: '100%', marginTop: 4 },
+    }
+
     const {
-      title,
-      active,
-      onPress,
+      data,
+      activeIndex,
+      onChange,
+      isShadow
     } = this.props;
     return (
-      <HeaderContainer onPress={onPress}>
-        <HeaderText active={active}>{title}</HeaderText>
-        {active && <ActiveBoard />}
-      </HeaderContainer>
+      <View>
+        <TabsPanelView>
+          {
+            data.map((obj, index) => (
+              <HeaderContainer onPress={()=> onChange&&onChange(index)} key={index}>
+                <HeaderText active={activeIndex === index}>{obj}</HeaderText>
+                {activeIndex === index && <ActiveBoard />}
+              </HeaderContainer>
+            ))
+          }
+
+        </TabsPanelView>
+        { isShadow ? <BorderShadow setting={shadowOpt} /> : ''}
+      </View>
     );
   }
 }
 
 PanelHeader.defaultProps = {
-  onPress: () => null,
+  onChange: () => null,
+  isShadow: true
 };
 
 PanelHeader.propTypes = {
-  title: PropTypes.string.isRequired,
-  active: PropTypes.bool.isRequired,
-  onPress: PropTypes.func,
+  data: PropTypes.array.isRequired,
+  activeIndex: PropTypes.number,
+  onChange: PropTypes.func,
+  isShadow: PropTypes.bool
 };
 
 export default PanelHeader;
