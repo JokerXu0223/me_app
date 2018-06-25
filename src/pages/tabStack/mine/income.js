@@ -1,6 +1,6 @@
 /**
- * @component performance.js
- * @description 我的业绩
+ * @component income.js
+ * @description 卡券效果
  * @time 2018/6/25
  * @author zhao
  */
@@ -10,26 +10,27 @@ import { Text } from 'react-native';
 import { BasicPage } from '../../../components/layout';
 import { theme } from '../../../constants';
 
-class PerformanceView extends Component {
+class MineIncome extends Component {
   state = {};
 
   render() {
     return (
       <BasicPage>
+        <Text>我的收益</Text>
       </BasicPage>
     );
   }
 }
 
-PerformanceView.navigationOptions = () => ({
-  title: '我的业绩',
+MineIncome.navigationOptions = () => ({
+  title: '我的收益',
   headerStyle: theme.headerStyle,
   headerBackTitle: null,
   headerTintColor: theme.mainTextColor,
   headerTitleStyle: theme.headerTitleStyle,
 });
 
-PerformanceView.propTypes = {
+MineIncome.propTypes = {
 };
 
-export default PerformanceView;
+export default MineIncome;

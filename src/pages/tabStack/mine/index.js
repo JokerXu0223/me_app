@@ -11,9 +11,19 @@ import { Image } from 'react-native';
 
 import { routers, theme } from '../../../constants/index';
 import MineScreen from './mine';
+import MinePerformanceScreen from './performance'
+import MineCardScreen from './card'
+import MineIncomeScreen from './income'
+import MineQrCodeScreen from './qrCode'
+import MineReportScreen from './report'
 
 const RouteConfig = {
   [routers.mine]: MineScreen,
+  [routers.minePerformance]: MinePerformanceScreen,
+  [routers.mineCard]: MineCardScreen,
+  [routers.mineIncome]: MineIncomeScreen,
+  [routers.mineQrCode]: MineQrCodeScreen,
+  [routers.mineReport]: MineReportScreen
 };
 
 const navigatorConfig = {

@@ -9,48 +9,52 @@ import styled from 'styled-components';
 import { View } from 'react-native';
 import { MineHeader, MineNavItem } from '../../../components/mine';
 import { BasicPage } from '../../../components/layout';
-import { theme } from '../../../constants';
+import { theme, routers } from '../../../constants';
 
 const ListView = styled(View)`
   width: 100%;
-  background: #ff0000;
+  background: #ffffff;
 `;
 
 const PageView = styled(View)`
   flex: 1;
-  background: #000;
+  background: #F9F9F9;
 `
 
 const NavList = [
   {
     icon: require('../../../assets/mine/statistics.png'),
     title: '我的业绩',
-    path: '',
+    path: routers.minePerformance,
   },
   {
     icon: require('../../../assets/mine/pig.png'),
     title: '我的收益',
-    path: '',
+    path: routers.mineIncome,
   },
   {
     icon: require('../../../assets/mine/card.png'),
     title: '卡券效果',
-    path: '',
+    path: routers.mineCard,
   },
   {
     icon: require('../../../assets/mine/qrCode.png'),
     title: '我的二维码',
-    path: '',
+    path: routers.mineQrCode,
   },
   {
     icon: require('../../../assets/mine/report.png'),
     title: '我的月报',
-    path: '',
+    path: routers.mineReport,
   }
 ]
 
 class MineScreen extends React.Component {
   state = {};
+
+  onNavHandler(path) {
+    this.props.navigation.navigate(path)
+  }
 
   render() {
     return (
@@ -59,7 +63,7 @@ class MineScreen extends React.Component {
           <MineHeader />
           <ListView>
             {
-              NavList.map((obj, index) => <MineNavItem data={obj} key={index} isLast={index===NavList.length-1} />)
+              NavList.map((obj, index) => <MineNavItem data={obj} key={index} isLast={index===NavList.length-1} onPress={()=>this.onNavHandler(obj.path)} />)
             }
           </ListView>
         </PageView>

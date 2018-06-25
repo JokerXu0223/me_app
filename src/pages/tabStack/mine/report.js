@@ -1,6 +1,6 @@
 /**
- * @component performance.js
- * @description 我的业绩
+ * @component report.js
+ * @description 月报
  * @time 2018/6/25
  * @author zhao
  */
@@ -10,26 +10,27 @@ import { Text } from 'react-native';
 import { BasicPage } from '../../../components/layout';
 import { theme } from '../../../constants';
 
-class PerformanceView extends Component {
+class MineReport extends Component {
   state = {};
 
   render() {
     return (
       <BasicPage>
+        <Text>我的月报</Text>
       </BasicPage>
     );
   }
 }
 
-PerformanceView.navigationOptions = () => ({
-  title: '我的业绩',
+MineReport.navigationOptions = () => ({
+  title: '月报',
   headerStyle: theme.headerStyle,
   headerBackTitle: null,
   headerTintColor: theme.mainTextColor,
   headerTitleStyle: theme.headerTitleStyle,
 });
 
-PerformanceView.propTypes = {
+MineReport.propTypes = {
 };
 
-export default PerformanceView;
+export default MineReport;

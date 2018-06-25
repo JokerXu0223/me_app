@@ -12,5 +12,10 @@ export default {
   member: 'app.root.tabView.member',
   rank: 'app.root.tabView.rank',
   mine: 'app.root.tabView.mine',
+  minePerformance: "app.root.tabView.mine.performance",
+  mineCard: "app.root.tabView.mine.card",
+  mineIncome: "app.root.tabView.mine.income",
+  mineQrCode: "app.root.tabView.mine.qrCode",
+  mineReport: "app.root.tabView.mine.report"
 };
 
