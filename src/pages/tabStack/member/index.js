@@ -10,14 +10,14 @@ import { createStackNavigator } from 'react-navigation';
 import { Image } from 'react-native';
 
 import { routers, theme } from '../../../constants/index';
-import MineScreen from './member';
+import MemberScreen from './member';
 
 const RouteConfig = {
-  [routers.mine]: MineScreen,
+  [routers.member]: MemberScreen,
 };
 
 const navigatorConfig = {
-  initialRouteName: routers.Mine,
+  initialRouteName: routers.member,
   cardStyle: { shadowColor: 'transparent' },
   headerMode: 'screen',
 };

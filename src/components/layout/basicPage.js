@@ -7,7 +7,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native';
 
 import CommStatusBar from './commStatusBar';
 
@@ -21,9 +21,7 @@ class BasicPage extends React.PureComponent {
     return (
       <ContainerView>
         <CommStatusBar />
-        <ScrollView>
-          {this.props.children}
-        </ScrollView>
+        {this.props.children}
       </ContainerView>
     );
   }

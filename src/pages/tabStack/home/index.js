@@ -15,7 +15,7 @@ import DetailsScreen from './details';
 
 const RouteConfig = {
   [routers.home]: HomeScreen,
-  [routers.details]: DetailsScreen,
+  [routers.homeDetails]: DetailsScreen,
 };
 
 const navigatorConfig = {
@@ -61,4 +61,5 @@ HomeStack.navigationOptions = ({ navigation }) => {
   };
 };
 
-export default HomeStack
+export default HomeStack;
+
