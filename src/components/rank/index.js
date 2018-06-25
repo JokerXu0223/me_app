@@ -6,5 +6,6 @@
  */
 import PanelView from './panelView';
 import RankItem from './rankItem';
+import DeatHead from './deatHead';
 
-export { PanelView, RankItem };
+export { PanelView, RankItem, DeatHead };

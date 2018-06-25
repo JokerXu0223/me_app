@@ -35,10 +35,6 @@ const HeaderText = styled(Text)`
   font-size: 18px;
   color: #4F4F4F;
 `;
-/**
- * color: ${props => (props.active ? theme.primaryColor : 'rgb(102, 102, 102)')};
- * */
-
 const ActiveBoard = styled(View)`
   position: absolute;
   bottom: 0;
@@ -64,7 +60,7 @@ class PanelHeader extends React.PureComponent {
       data,
       activeIndex,
       onChange,
-      isShadow
+      isShadow,
     } = this.props;
     return (
       <View>
@@ -87,14 +83,14 @@ class PanelHeader extends React.PureComponent {
 
 PanelHeader.defaultProps = {
   onChange: () => null,
-  isShadow: true
+  isShadow: true,
 };
 
 PanelHeader.propTypes = {
   data: PropTypes.array.isRequired,
   activeIndex: PropTypes.number,
   onChange: PropTypes.func,
-  isShadow: PropTypes.bool
+  isShadow: PropTypes.bool,
 };
 
 export default PanelHeader;
