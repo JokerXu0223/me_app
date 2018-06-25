@@ -8,6 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { View, Text, Image } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 const ContainerView = styled(View)`
   width: 100%;
@@ -16,7 +17,6 @@ const ContainerView = styled(View)`
 const LinearGradientView = styled(View)`
   width: 100%;
   height: 144px;
-  background: #87A8E3;
   flexDirection: row;
 `
 
@@ -111,24 +111,26 @@ class mineHeader extends React.PureComponent {
     // const { data } = this.props;
     return (
       <ContainerView>
-        <LinearGradientView>
-          <LeftView />
-          <RightView>
-            <NameIconView>
-              <NameIconImage source={require('../../assets/mine/persion.png')} />
-            </NameIconView>
-            <NameText>导购姓名</NameText>
+        <LinearGradient start={{x: 0.0, y: 0.0}} end={{x: 1.0, y: 1.0}} colors={["#87A8E3", "#5374C7"]}>
+          <LinearGradientView>
+            <LeftView />
+            <RightView>
+              <NameIconView>
+                <NameIconImage source={require('../../assets/mine/persion.png')} />
+              </NameIconView>
+              <NameText>导购姓名</NameText>
 
-            <PlaceIconView>
-              <PlaceIcon source={require('../../assets/mine/place.png')} />
-            </PlaceIconView>
-            <PlaceText>苏州高新区竹园路大牌分店</PlaceText>
-          </RightView>
+              <PlaceIconView>
+                <PlaceIcon source={require('../../assets/mine/place.png')} />
+              </PlaceIconView>
+              <PlaceText>苏州高新区竹园路大牌分店</PlaceText>
+            </RightView>
 
-          <GoImageView>
-            <GoImage source={require('../../assets/mine/go.png')} />
-          </GoImageView>
-        </LinearGradientView>
+            <GoImageView>
+              <GoImage source={require('../../assets/mine/go.png')} />
+            </GoImageView>
+          </LinearGradientView>
+        </LinearGradient>
 
         <GayView>
           <LeftView />

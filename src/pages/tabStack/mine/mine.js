@@ -13,8 +13,13 @@ import { theme } from '../../../constants';
 
 const ListView = styled(View)`
   width: 100%;
-  background: #F9F9F9;
+  background: #ff0000;
 `;
+
+const PageView = styled(View)`
+  flex: 1;
+  background: #000;
+`
 
 const NavList = [
   {
@@ -41,7 +46,7 @@ const NavList = [
     icon: require('../../../assets/mine/report.png'),
     title: '我的月报',
     path: '',
-  },
+  }
 ]
 
 class MineScreen extends React.Component {
@@ -50,19 +55,21 @@ class MineScreen extends React.Component {
   render() {
     return (
       <BasicPage>
-        <MineHeader />
-        <ListView>
-          {
-            NavList.map(obj => <MineNavItem data={obj} key={obj.title} />)
-          }
-        </ListView>
+        <PageView>
+          <MineHeader />
+          <ListView>
+            {
+              NavList.map((obj, index) => <MineNavItem data={obj} key={index} isLast={index===NavList.length-1} />)
+            }
+          </ListView>
+        </PageView>
       </BasicPage>
     );
   }
 }
 
 MineScreen.navigationOptions = () => ({
-  title: '我的',
+  title: '个人中心',
   headerStyle: theme.headerStyle,
   headerBackTitle: null,
   headerTintColor: theme.mainTextColor,

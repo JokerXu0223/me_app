@@ -23,7 +23,7 @@ const BorderView = styled(View)`
     height: 100%;
     alignItems: center;
     justifyContent: space-between;
-    borderBottomWidth: 1px;
+    borderBottomWidth: ${props => (props.isLast ? 0 : '1px')};
     borderBottomColor: #F6F6F6;
     flexDirection: row;
 `;
@@ -57,10 +57,10 @@ const RightView = styled(View)`
 
 class mineNavItem extends React.PureComponent {
   render() {
-    const { data, onPress } = this.props;
+    const { data, onPress, isLast } = this.props;
     return (
       <ContainerView onPress={onPress}>
-        <BorderView>
+        <BorderView isLast={isLast}>
           <LeftView>
             <IconView>
               <Image source={data.icon} />
@@ -85,11 +85,13 @@ class mineNavItem extends React.PureComponent {
 
 mineNavItem.defaultProps = {
   data: {},
+  isLast: false,
   onPress: () => null,
 };
 
 mineNavItem.propTypes = {
   data: PropTypes.objectOf(PropTypes.any),
+  isLast: PropTypes.bool,
   onPress: PropTypes.func,
 };
 

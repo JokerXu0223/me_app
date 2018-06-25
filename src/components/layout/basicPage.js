@@ -21,9 +21,7 @@ class BasicPage extends React.PureComponent {
     return (
       <ContainerView>
         <CommStatusBar />
-        <ScrollView>
-          {this.props.children}
-        </ScrollView>
+        {this.props.children}
       </ContainerView>
     );
   }
