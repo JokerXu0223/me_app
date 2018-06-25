@@ -6,62 +6,57 @@
  */
 import React from 'react';
 import styled from 'styled-components';
-import { View, Image, ScrollView } from 'react-native';
-import { MineHeader, MineNavItem } from '../../../components/mine'
-
+import { View } from 'react-native';
+import { MineHeader, MineNavItem } from '../../../components/mine';
+import { BasicPage } from '../../../components/layout';
 import { theme } from '../../../constants';
-
-
-const ContainerView = styled(View)`
-`
 
 const ListView = styled(View)`
   width: 100%;
-  background: #FFFFFF;
-`
+  background: #F9F9F9;
+`;
 
 const NavList = [
   {
     icon: require('../../../assets/mine/statistics.png'),
     title: '我的业绩',
-    path: ''
+    path: '',
   },
   {
     icon: require('../../../assets/mine/pig.png'),
     title: '我的收益',
-    path: ''
+    path: '',
   },
   {
     icon: require('../../../assets/mine/card.png'),
     title: '卡券效果',
-    path: ''
+    path: '',
   },
   {
     icon: require('../../../assets/mine/qrCode.png'),
     title: '我的二维码',
-    path: ''
+    path: '',
   },
   {
     icon: require('../../../assets/mine/report.png'),
     title: '我的月报',
-    path: ''
-  }
+    path: '',
+  },
 ]
 
 class MineScreen extends React.Component {
-  state = {
-  }
+  state = {};
 
   render() {
     return (
-      <ContainerView>
+      <BasicPage>
         <MineHeader />
         <ListView>
           {
-            NavList.map((obj, index) => <MineNavItem data={obj} key={index} />)
+            NavList.map(obj => <MineNavItem data={obj} key={obj.title} />)
           }
         </ListView>
-      </ContainerView>
+      </BasicPage>
     );
   }
 }
@@ -74,7 +69,6 @@ MineScreen.navigationOptions = () => ({
   headerTitleStyle: theme.headerTitleStyle,
 });
 
-MineScreen.propTypes = {
-};
+MineScreen.propTypes = {};
 
 export default MineScreen;

@@ -9,8 +9,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { View, Text, Image } from 'react-native';
 
-import LinearGradient from 'react-native-linear-gradient';
-
 const ContainerView = styled(View)`
   width: 100%;
 `
@@ -110,17 +108,21 @@ const DescText = styled(Text)`
 
 class mineHeader extends React.PureComponent {
   render() {
-    const { data } = this.props;
+    // const { data } = this.props;
     return (
       <ContainerView>
-        <LinearGradientView colors={['#1AD6FF', '#24C6FF']}>
+        <LinearGradientView>
           <LeftView />
           <RightView>
-            <NameIconView><NameIconImage source={require('../../assets/mine/persion.png')} /></NameIconView>
-            <NameText>{`导购姓名`}</NameText>
+            <NameIconView>
+              <NameIconImage source={require('../../assets/mine/persion.png')} />
+            </NameIconView>
+            <NameText>导购姓名</NameText>
 
-            <PlaceIconView><PlaceIcon source={require('../../assets/mine/place.png')}></PlaceIcon></PlaceIconView>
-            <PlaceText>{`苏州高新区竹园路大牌分店`}</PlaceText>
+            <PlaceIconView>
+              <PlaceIcon source={require('../../assets/mine/place.png')} />
+            </PlaceIconView>
+            <PlaceText>苏州高新区竹园路大牌分店</PlaceText>
           </RightView>
 
           <GoImageView>

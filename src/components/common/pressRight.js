@@ -8,7 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Image, TouchableOpacity, Text } from 'react-native';
-import { theme } from '../../constants';
+import { theme } from '../../constants/index';
 
 const ContainerView = styled(TouchableOpacity)`
   align-items: center;
@@ -59,13 +59,14 @@ class PressRight extends React.PureComponent {
 
 PressRight.defaultProps = {
   suffix: null,
+  goIcon: require('../../assets/home/go.png'),
   titleStyle: null,
   onPress: () => null,
 };
 
 PressRight.propTypes = {
   title: PropTypes.string.isRequired,
-  goIcon: PropTypes.number.isRequired,
+  goIcon: PropTypes.number,
   onPress: PropTypes.func,
   suffix: PropTypes.element,
   titleStyle: PropTypes.objectOf(PropTypes.any),

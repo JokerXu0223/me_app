@@ -11,7 +11,7 @@ import { ImageBackground, Image, TouchableOpacity, View, Text } from 'react-nati
 import { BorderShadow } from '../common';
 import { theme } from '../../constants';
 
-import PressRight from './pressRight';
+import PressRight from '../common/pressRight';
 
 const HeaderBackImage = styled(ImageBackground)`
   height: 300px;
@@ -196,7 +196,7 @@ class OverHeader extends React.PureComponent {
             </PerfSection>
           </PerfBackImage>
         </HeaderView>
-        <BorderShadow key={1} setting={shadowOpt} />
+        <BorderShadow setting={shadowOpt} />
         <FooterView>
           <LabelItem>
             <LabelTitle>{perfInfo.follow}</LabelTitle>

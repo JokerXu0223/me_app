@@ -5,7 +5,6 @@
  * @author JUSTIN XU
  */
 import OverHeader from './overHeader';
-import PressRight from './pressRight';
 import BirthItem from './birthItem';
 
-export { OverHeader, PressRight, BirthItem };
+export { OverHeader, BirthItem };

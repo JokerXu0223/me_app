@@ -7,6 +7,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { Container } from 'native-base';
+import LinearGradient from 'react-native-linear-gradient';
 
 import { theme } from '../../../constants';
 
@@ -15,6 +16,11 @@ class MemberScreen extends React.Component {
     return (
       <Container>
         <Text>Member with</Text>
+        <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']}>
+          <Text>
+            Sign in with Facebook
+          </Text>
+        </LinearGradient>
       </Container>
     );
   }
