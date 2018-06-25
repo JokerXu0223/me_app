@@ -65,6 +65,10 @@ class BorderShadow extends React.PureComponent {
           dotContainerStyle={{
             marginHorizontal: 4,
           }}
+          inactiveDotStyle={{
+            borderWidth: 1,
+            borderColor: '#D0D0D0',
+          }}
           dotStyle={{
             width: 8,
             height: 8,

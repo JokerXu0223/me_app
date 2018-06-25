@@ -55,10 +55,10 @@ class RankItem extends React.PureComponent {
       color: '#b9b9b9',
       border: 4,
       radius: 4,
-      opacity: 0.3,
+      opacity: 0.2,
       x: ios ? 8 : 14,
-      y: ios ? 2 : 2,
-      style: { width: '100%', marginVertical: 15 },
+      y: 2,
+      style: { width: '100%', marginVertical: 10 },
     }
     return (
       <BoxShadow

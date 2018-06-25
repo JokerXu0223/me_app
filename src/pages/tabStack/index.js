@@ -20,12 +20,17 @@ const RouteConfig = {
 };
 
 const navigatorConfig = {
-  initialRouteName: routers.home,
+  initialRouteName: routers.member,
   tabBarOptions: {
     style: {
       backgroundColor: theme.headerBackgroundColor,
       borderTopWidth: 0.5,
       borderTopColor: theme.headerBorderColor,
+      shadowOpacity: 0.2,
+      shadowRadius: 4,
+      shadowColor: '#999',
+      shadowOffset: { width: 0, height: -3 },
+      elevation: 2,
     },
     labelStyle: {
       fontSize: 10,
