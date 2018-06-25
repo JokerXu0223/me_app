@@ -5,50 +5,55 @@
  * @author JUSTIN XU
  */
 import React from 'react';
-import { ScrollView, Text } from 'react-native';
+import styled from 'styled-components';
+import { ScrollView } from 'react-native';
 
-import { PanelHeader, TabsPanelView } from '../../../components/common';
+import { PanelHeader } from '../../../components/common';
 import { BasicPage } from '../../../components/layout';
+import { DeatHead } from '../../../components/rank';
 import { theme } from '../../../constants';
 
+import HeadImage from '../../../assets/test/head.png';
+
+const DividerView = styled.View`
+  height: 10px;
+  background: #F6F6F6;
+`;
+
+const TabList = ['总榜', '上周', '上月'];
 
 class DetailsScreen extends React.Component {
   state = {
-    activeIndex: 1,
+    tabIndex: 0,
   };
-  changeHandle = (index) => {
-    const { activeIndex } = this.state;
-    if (activeIndex === index) return false;
-    this.setState({ activeIndex: index });
+  onTabHandle = (index) => {
+    const { tabIndex } = this.state;
+    if (tabIndex === index) return false;
+    this.setState({ tabIndex: index });
     return null;
   }
   render() {
     const {
       state: {
-        activeIndex,
+        tabIndex,
       },
     } = this;
+    const headProps = {
+      userInfo: {
+        thumbnail: HeadImage,
+      },
+    };
     return (
       <BasicPage>
-        <TabsPanelView>
-          <PanelHeader
-            title="总榜"
-            onPress={() => this.changeHandle(1)}
-            active={activeIndex === 1}
-          />
-          <PanelHeader
-            title="上周"
-            onPress={() => this.changeHandle(2)}
-            active={activeIndex === 2}
-          />
-          <PanelHeader
-            title="上月"
-            onPress={() => this.changeHandle(3)}
-            active={activeIndex === 3}
-          />
-        </TabsPanelView>
+        <PanelHeader
+          data={TabList}
+          activeIndex={tabIndex}
+          isShadow={false}
+          onChange={tab => this.onTabHandle(tab)}
+        />
+        <DividerView />
         <ScrollView>
-          <Text>123</Text>
+          <DeatHead {...headProps} />
         </ScrollView>
       </BasicPage>
     );
@@ -56,7 +61,7 @@ class DetailsScreen extends React.Component {
 }
 
 DetailsScreen.navigationOptions = () => ({
-  title: '会员',
+  title: '粉丝排行',
   headerStyle: theme.headerStyle,
   headerBackTitle: null,
   headerTintColor: theme.mainTextColor,

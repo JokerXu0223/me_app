@@ -7,9 +7,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { View, Text, Image, Platform } from 'react-native';
+import { View, Text, Platform } from 'react-native';
 import { theme } from '../../constants';
 import BoxShadow from '../common/boxShadow';
+import { ImageView } from '../styles/headImage';
 
 const ItemView = styled(View)`
   background: #FFFFFF;
@@ -19,12 +20,6 @@ const ItemView = styled(View)`
   align-items: center;
   padding-top: 7px;
   padding-bottom: 14px;
-`;
-
-const ImageView = styled(Image)`
-  width: 60px;
-  height: 60px;
-  border-radius: 30;
 `;
 
 const NameText = styled(Text)`
