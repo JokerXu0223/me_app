@@ -7,7 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Text, View, Image } from 'react-native';
+import { Text, View } from 'react-native';
 
 import { theme } from '../../constants';
 import { ImageView } from '../styles/headImage';
@@ -18,6 +18,7 @@ const HeadContainer = styled(View)`
   padding-right: 51px;
   justify-content: space-between;
   flex-direction: row;
+  border: 1px #F6F6F6;
 `;
 
 const CommonView = styled(View)`
@@ -56,8 +57,8 @@ class DetaHeadScreen extends React.PureComponent {
     return (
       <HeadContainer>
         <CommonView>
-          <BothSideText>15</BothSideText>
-          <BothSideFooter>当前名次</BothSideFooter>
+          <BothSideText>{userInfo.leftNum}</BothSideText>
+          <BothSideFooter>{userInfo.leftText}</BothSideFooter>
         </CommonView>
         <CommonView>
           <ImageView
@@ -66,8 +67,8 @@ class DetaHeadScreen extends React.PureComponent {
           <BodyFooter>李四</BodyFooter>
         </CommonView>
         <CommonView>
-          <BothSideText>33</BothSideText>
-          <BothSideFooter>发展会员</BothSideFooter>
+          <BothSideText>{userInfo.rightNum}</BothSideText>
+          <BothSideFooter>{userInfo.rightText}</BothSideFooter>
         </CommonView>
       </HeadContainer>
     );

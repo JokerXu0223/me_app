@@ -41,6 +41,10 @@ class DetailsScreen extends React.Component {
     const headProps = {
       userInfo: {
         thumbnail: HeadImage,
+        leftNum: 15,
+        leftText: '当前名次',
+        rightNum: 33,
+        rightText: '发展粉丝',
       },
     };
     return (
